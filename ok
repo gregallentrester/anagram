@@ -1,0 +1,7 @@
+#!/bin/bash -p
+
+bld
+
+. culljava
+
+java -jar ./target/anagram.jar  $@

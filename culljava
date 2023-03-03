@@ -1,0 +1,12 @@
+#!/bin/bash -p
+
+ps aux | grep "java" | grep -v grep > "javaID.txt";
+
+while IFS=' ' read -r line || [[ -n "$line" ]]; do
+
+  PID="$(echo $line | cut -d " " -f 2)";
+  kill -9 "${PID}";
+
+done < javaID.txt;
+
+rm -fr javaID.txt
